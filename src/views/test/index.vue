@@ -1,5 +1,8 @@
 <template>
   <div class="dashboard-editor-container">
+
+    <test-component />
+
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
@@ -56,9 +59,6 @@
         <box-card />
       </el-col>
     </el-row>
-
-    <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar">
-
   </div>
 </template>
 
@@ -71,7 +71,7 @@ import BarChart from './components/BarChart'
 import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
-import { mapGetters } from 'vuex'
+import TestComponent from './components/TestComponent'
 
 const lineChartData = {
   newVisitis: {
@@ -102,19 +102,13 @@ export default {
     BarChart,
     TransactionTable,
     TodoList,
-    BoxCard
+    BoxCard,
+    TestComponent
   },
   data() {
     return {
       lineChartData: lineChartData.newVisitis
     }
-  },
-  computed: {
-    ...mapGetters([
-      'name',
-      'avatar',
-      'roles'
-    ])
   },
   methods: {
     handleSetLineChartData(type) {
